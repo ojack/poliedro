@@ -101,14 +101,14 @@ void contourTracker::draw(){
     }
     ofEndShape();*/
    // resampleSmoothed.draw();
-    ofPushStyle();
+   // ofPushStyle();
    // ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofBeginShape();
-    ofSetColor(255, 230, 0, 100);
+   // ofSetColor(255, 230, 0, 100);
     for (int i = 0; i < resampleSmoothed.size(); i++){
         ofCurveVertex(resampleSmoothed[i]);
     }
     ofEndShape();
-     ofPopStyle();
+   //  ofPopStyle();
     
 }

@@ -23,6 +23,7 @@ class contentLoader {
     
     vector<ofImage> goodImages;
     vector<ofImage> badImages;
+    vector<ofImage> textImages;
     
     int imageIndex;
     int width;
@@ -30,6 +31,7 @@ class contentLoader {
     
     ofImage * image0;
     ofImage * image1;
+    ofImage * image2;
 };
 
 #endif /* defined(__poliedro__contentLoader__) */

@@ -52,6 +52,8 @@
 		8E32D67E1DDF9913006FDC6E /* tilt.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E32D6631DDF9913006FDC6E /* tilt.c */; };
 		8E32D67F1DDF9913006FDC6E /* usb_libusb10.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E32D6641DDF9913006FDC6E /* usb_libusb10.c */; };
 		8E32D6801DDF9913006FDC6E /* usb-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E32D66C1DDF9913006FDC6E /* usb-1.0.a */; };
+		8EB053051DE4AA3300E0862B /* trailsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB053031DE4AA3300E0862B /* trailsScene.cpp */; };
+		8EB0530E1DE4C1C700E0862B /* greenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0530C1DE4C1C700E0862B /* greenScene.cpp */; };
 		8ECA166F1DE3936A00E6D9F8 /* sceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA166D1DE3936A00E6D9F8 /* sceneManager.cpp */; };
 		8ECA16721DE3984A00E6D9F8 /* motionTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA16701DE3984A00E6D9F8 /* motionTracker.cpp */; };
 		8ECA16781DE3A4CC00E6D9F8 /* contentLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA16761DE3A4CC00E6D9F8 /* contentLoader.cpp */; };
@@ -299,6 +301,10 @@
 		8E32D6691DDF9913006FDC6E /* libusb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libusb.h; sourceTree = "<group>"; };
 		8E32D66C1DDF9913006FDC6E /* usb-1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "usb-1.0.a"; sourceTree = "<group>"; };
 		8E79CF8911DFABAFE23EA45B /* ofxCvConstants.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvConstants.h; path = ../../../addons/ofxOpenCv/src/ofxCvConstants.h; sourceTree = SOURCE_ROOT; };
+		8EB053031DE4AA3300E0862B /* trailsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trailsScene.cpp; path = scenes/trailsScene.cpp; sourceTree = "<group>"; };
+		8EB053041DE4AA3300E0862B /* trailsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trailsScene.h; path = scenes/trailsScene.h; sourceTree = "<group>"; };
+		8EB0530C1DE4C1C700E0862B /* greenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greenScene.cpp; sourceTree = "<group>"; };
+		8EB0530D1DE4C1C700E0862B /* greenScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = greenScene.h; sourceTree = "<group>"; };
 		8ECA166D1DE3936A00E6D9F8 /* sceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sceneManager.cpp; path = scenes/sceneManager.cpp; sourceTree = "<group>"; };
 		8ECA166E1DE3936A00E6D9F8 /* sceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sceneManager.h; path = scenes/sceneManager.h; sourceTree = "<group>"; };
 		8ECA16701DE3984A00E6D9F8 /* motionTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = motionTracker.cpp; sourceTree = "<group>"; };
@@ -670,6 +676,8 @@
 		36BF1C038F5AEC4D85473FE4 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8EB0530B1DE4C1C700E0862B /* greenScene */,
+				8EB053021DE4A19A00E0862B /* trailsScene */,
 				8ECA167E1DE3C20400E6D9F8 /* paintScene */,
 				8ECA166D1DE3936A00E6D9F8 /* sceneManager.cpp */,
 				8ECA166E1DE3936A00E6D9F8 /* sceneManager.h */,
@@ -1105,6 +1113,25 @@
 				8E32D66C1DDF9913006FDC6E /* usb-1.0.a */,
 			);
 			path = osx;
+			sourceTree = "<group>";
+		};
+		8EB053021DE4A19A00E0862B /* trailsScene */ = {
+			isa = PBXGroup;
+			children = (
+				8EB053031DE4AA3300E0862B /* trailsScene.cpp */,
+				8EB053041DE4AA3300E0862B /* trailsScene.h */,
+			);
+			name = trailsScene;
+			sourceTree = "<group>";
+		};
+		8EB0530B1DE4C1C700E0862B /* greenScene */ = {
+			isa = PBXGroup;
+			children = (
+				8EB0530C1DE4C1C700E0862B /* greenScene.cpp */,
+				8EB0530D1DE4C1C700E0862B /* greenScene.h */,
+			);
+			name = greenScene;
+			path = scenes/greenScene;
 			sourceTree = "<group>";
 		};
 		8ECA16751DE3A4A400E6D9F8 /* content */ = {
@@ -1624,6 +1651,7 @@
 				8E32D67C1DDF9913006FDC6E /* loader.c in Sources */,
 				169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */,
 				FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */,
+				8EB0530E1DE4C1C700E0862B /* greenScene.cpp in Sources */,
 				E212C821D1064B92DD953A42 /* ofxCvHaarFinder.cpp in Sources */,
 				63020F16C7E8DED980111241 /* ofxCvImage.cpp in Sources */,
 				D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */,
@@ -1672,6 +1700,7 @@
 				8E32D6771DDF9913006FDC6E /* audio.c in Sources */,
 				8E32D67B1DDF9913006FDC6E /* keep_alive.c in Sources */,
 				3C875D4FF01530E122098DCF /* usb_control.cpp in Sources */,
+				8EB053051DE4AA3300E0862B /* trailsScene.cpp in Sources */,
 				8ECA16781DE3A4CC00E6D9F8 /* contentLoader.cpp in Sources */,
 				496F3BC7EBDF73AA2A4ABC1A /* ofProtonect.cpp in Sources */,
 				8E32D67E1DDF9913006FDC6E /* tilt.c in Sources */,

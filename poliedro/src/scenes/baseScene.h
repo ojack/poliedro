@@ -17,6 +17,7 @@ public:
     vector<contourTracker> * CTVector;
     ofImage * image0;
     ofImage * image1;
+    ofImage * image2;
     int width;
     int height;
     ofFbo * motionFbo;

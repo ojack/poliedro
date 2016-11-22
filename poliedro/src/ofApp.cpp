@@ -2,6 +2,8 @@
 
 #include "velocityScene.h"
 #include "paintScene.h"
+#include "greenScene.h"
+#include "trailsScene.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -12,8 +14,10 @@ void ofApp::setup(){
     content.setup(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y);
     IM.setup();
     
+    
+    SM.scenes.push_back(new trailsScene());
+    SM.scenes.push_back(new greenScene());
     SM.scenes.push_back(new paintScene());
-    SM.scenes.push_back(new velocityScene());
     
     // share a pointer to the CT object
     motion.CTVector = &CTVector;
@@ -26,9 +30,11 @@ void ofApp::setup(){
     for (int i = 0; i < SM.scenes.size(); i++){
         SM.scenes[i]->image0 = content.image0;
         SM.scenes[i]->image1 = content.image1;
+        SM.scenes[i]->image2 = content.image2;
         SM.scenes[i]->width = PROJECTOR_RESOLUTION_X;
         SM.scenes[i]->height = PROJECTOR_RESOLUTION_Y;
         SM.scenes[i]->motionFbo = &motion.motionFbo;
+        SM.scenes[i]->CTVector = &CTVector;
     }
     
     
@@ -99,12 +105,7 @@ void ofApp::draw(){
       // motion.draw();
     }
 
-    if(bDrawFigure){
-        for (int i = 0; i < CTVector.size(); i++){
-            CTVector.at(i).draw();
-            
-        }
-    }
+   
    // IM.finder.draw();
    // motion.draw();
     
@@ -115,6 +116,8 @@ void ofApp::keyPressed(int key){
 
     if (key == OF_KEY_RIGHT){
         SM.nextScene();
+        motion.clear();
+
     }
     
     if (key == ' '){

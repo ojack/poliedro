@@ -13,11 +13,13 @@ void contentLoader::setup(int _width, int _height){
     height = _height;
     loadImages("content/good", &goodImages);
     loadImages("content/bad", &badImages);
+    loadImages("content/good-texto", &textImages);
     
     imageIndex = 0;
     
     image0 = &badImages.at(imageIndex);
     image1 = &goodImages.at(imageIndex);
+    image2 = &textImages.at(imageIndex);
     
 }
 

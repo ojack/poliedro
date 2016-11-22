@@ -9,7 +9,7 @@
 
 using namespace milton;
 
-//f#define USE_VIDEO
+#define USE_VIDEO
 
 class inputManager {
     

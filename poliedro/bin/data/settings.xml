@@ -1,8 +1,9 @@
 <group>
 	<settings>
-		<threshold>145</threshold>
+		<threshold>163</threshold>
 		<speed>1</speed>
-		<medianFilterAmount>13</medianFilterAmount>
+		<medianFilterAmount>10</medianFilterAmount>
+	<minArea>6632.65</minArea>
 	</settings>
 <group/>
 <kinectV2_013751441647>
@@ -10,8 +11,8 @@
 		<maxDistance>2448.98</maxDistance>
 	</kinectV2_013751441647>
 <motion_tracking>
-		<op>18</op>
+		<op>11</op>
 		<cutoff>0.117347</cutoff>
-		<radius>36.7347</radius>
+		<radius>20.4082</radius>
 	</motion_tracking>
 </group>

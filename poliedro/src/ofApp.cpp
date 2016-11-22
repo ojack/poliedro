@@ -36,8 +36,11 @@ void ofApp::setup(){
    
     
     bDrawDebug = false;
+    bDrawFigure = true;
     
     panel.loadFromFile("settings.xml");
+    
+    int angle = 0;
 }
 
 //--------------------------------------------------------------
@@ -70,6 +73,8 @@ void ofApp::update(){
             
             }
             CTVector.at(j).analyze(tempLine);
+        } else {
+            CTVector.at(j).reset();
         }
     }
     motion.update();
@@ -81,6 +86,7 @@ void ofApp::update(){
 void ofApp::draw(){
 
     ofBackground(0,0,0);
+     ofSetColor(255, 255, 255, 255);
     string  info  = "FPS:        "+ofToString(ofGetFrameRate(),0);
     ofSetWindowTitle(info);
     if (bDrawDebug){
@@ -93,8 +99,14 @@ void ofApp::draw(){
       // motion.draw();
     }
 
+    if(bDrawFigure){
+        for (int i = 0; i < CTVector.size(); i++){
+            CTVector.at(i).draw();
+            
+        }
+    }
    // IM.finder.draw();
-   
+   // motion.draw();
     
 }
 
@@ -115,6 +127,18 @@ void ofApp::keyPressed(int key){
     
     if  (key == 'c'){
         motion.clear();
+    }
+    
+    if (key == OF_KEY_UP){
+        angle++;
+        if(angle>30) angle=30;
+        IM.setAngle(angle);
+    }
+    
+    if (key == OF_KEY_DOWN){
+        angle--;
+        if(angle<-30) angle=-30;
+        IM.setAngle(angle);
     }
 }
 

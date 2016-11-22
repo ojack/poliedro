@@ -6,7 +6,11 @@
 void contourTracker::setup(){
 }
 
-
+void contourTracker::reset(){
+    prevSmoothed.clear();
+    resampleSmoothed.clear();
+    prevFrame.clear();
+}
 //---------------------------------------------------------------
 void contourTracker::analyze( ofPolyline & curFrame ){
     
@@ -88,4 +92,23 @@ void contourTracker::analyze( ofPolyline & curFrame ){
 
 //---------------------------------------------------------------
 void contourTracker::draw(){
+   /* ofBeginShape();
+    ofSetColor(0, 0, 0, 80);
+    ofFill();
+    for (auto p : resampleSmoothed.getVertices()){
+         ofVertex(p.x, p.y);
+        
+    }
+    ofEndShape();*/
+   // resampleSmoothed.draw();
+    ofPushStyle();
+   // ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+    ofBeginShape();
+    ofSetColor(255, 230, 0, 100);
+    for (int i = 0; i < resampleSmoothed.size(); i++){
+        ofCurveVertex(resampleSmoothed[i]);
+    }
+    ofEndShape();
+     ofPopStyle();
+    
 }

@@ -12,10 +12,13 @@ class motionTracker {
     
     vector<contourTracker> * CTVector;
     ofFbo motionFbo;
+    ofFbo pixelFbo;
     
     ofxPanel * panel;
     ofParameterGroup params;
     ofParameter <int> op;
     ofParameter <float> cutoff;
     ofParameter <float> radius;
+    
+    
 };

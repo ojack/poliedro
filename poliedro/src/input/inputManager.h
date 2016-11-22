@@ -9,7 +9,7 @@
 
 using namespace milton;
 
-#define USE_VIDEO
+//f#define USE_VIDEO
 
 class inputManager {
     
@@ -20,7 +20,7 @@ public:
     void draw();
     
     void changeMovie( string fileName);
-    
+    void setAngle(int angle);
     
 #ifdef USE_VIDEO
     ofVideoPlayer player;
@@ -51,7 +51,10 @@ public:
     ofParameterGroup group;
     ofParameter < int > threshold;
     ofParameter < int > medianFilterAmount;
+    ofParameter < float > minArea;
     ofParameter < float > speed;
     ofxPanel * panel;
+        
+   
     
 };

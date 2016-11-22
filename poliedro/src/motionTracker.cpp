@@ -15,9 +15,15 @@
 void motionTracker::setup(int width, int height){
     //todo: scale to kinect? less channels?
     motionFbo.allocate(ofGetWidth(), ofGetHeight());
+    pixelFbo.allocate(100, 60, GL_RGB);
+    
     motionFbo.begin();
     ofClear(0,0,0,0);
     motionFbo.end();
+    
+    pixelFbo.begin();
+    ofClear(0,0,0,255);
+    pixelFbo.end();
     
     params.setName("motion tracking");
     params.add(op.set("op", 255, 0, 255));
@@ -53,6 +59,31 @@ void motionTracker::update(){
     }
     
     motionFbo.end();
+    
+    pixelFbo.begin();
+    ofClear(0, 0, 0, 255);
+    ofSetColor(255, 255, 255, 255);
+    motionFbo.draw(0, 0, pixelFbo.getWidth(), pixelFbo.getHeight());
+    pixelFbo.end();
+    
+    ofPixels pix;
+    pixelFbo.readToPixels(pix, 0);
+
+    float total = 0;
+    
+    ofPixels rpix = pix.getChannel(0);
+    float maxC = 0.0;
+    float minC = 0.0;
+    for(int i = 0; i < rpix.size(); i++){
+        char c = rpix[i];
+        if(c > 0){
+            total ++;
+        }
+        
+        if(c > maxC) maxC = c;
+    }
+    float percent = (total)/rpix.size();
+    ofLog() << "total " << total << "size " << rpix.size() << "percent " << percent << " max " <<maxC;
 }
 
 void motionTracker::clear(){
@@ -64,7 +95,7 @@ void motionTracker::clear(){
 //---------------------------------------------------------------
 void motionTracker::draw(){
    
-    motionFbo.draw(0, 0);
+    motionFbo.draw(200, 0);
 
-    
+    pixelFbo.draw(600, 300, 600, 400);
 }

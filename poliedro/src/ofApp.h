@@ -43,6 +43,9 @@ class ofApp : public ofBaseApp{
         sceneManager            SM;
         contentLoader           content;
         bool bDrawDebug;
-    
+        bool bDrawFigure;
         ofxPanel panel;
+    
+        int angle;
+    
 };

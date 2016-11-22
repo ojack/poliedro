@@ -9,6 +9,7 @@ void inputManager::setup(){
     group.setName("settings");
     group.add(threshold.set("threshold", 100, 0, 255));
     group.add(speed.set("speed", 1, 0,2));
+    group.add(minArea.set("minArea", 1000, 0, 10000));
     group.add(medianFilterAmount.set("medianFilterAmount", 5, 0, 30));
     
     
@@ -82,7 +83,7 @@ void inputManager::update(){
         
         finder.setSortBySize(true);
         finder.setThreshold(threshold);
-        
+        finder.setMinArea(minArea);
         finder.findContours(medianFilteredResult);
     }
 #else
@@ -130,13 +131,21 @@ void inputManager::update(){
         
         finder.setSortBySize(true);
         finder.setThreshold(threshold);
-        
+        finder.setMinArea(minArea);
         finder.findContours(medianFilteredResult);
     }
 #endif
     
 }
 
+void inputManager::setAngle(int angle){
+    #ifndef USE_VIDEO
+   
+    kinect.setCameraTiltAngle(angle);
+    
+    #endif
+
+}
 
 //---------------------------------------------------------------
 void inputManager::draw(){

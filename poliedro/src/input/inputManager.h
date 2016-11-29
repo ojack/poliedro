@@ -51,6 +51,8 @@ public:
     
     ofParameterGroup group;
     ofParameter < int > threshold;
+     ofParameter < int > farThreshold;
+    ofParameter < int > nearThreshold;
     ofParameter < int > medianFilterAmount;
     ofParameter < float > minArea;
     ofParameter < float > speed;

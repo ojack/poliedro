@@ -8,6 +8,8 @@ void inputManager::setup(){
     
     group.setName("settings");
     group.add(threshold.set("threshold", 100, 0, 255));
+    group.add(nearThreshold.set("near thresh", 200, 0, 255));
+    group.add(farThreshold.set("far thresh", 10, 0, 255));
     group.add(speed.set("speed", 1, 0,2));
     group.add(minArea.set("minArea", 1000, 0, 10000));
     group.add(medianFilterAmount.set("medianFilterAmount", 5, 0, 30));
@@ -74,7 +76,11 @@ void inputManager::update(){
         
         unsigned char * data  = player.getPixels().getData();
         for (int i = 0; i < 512*424; i++){
-            graypixels[i] = data[i*3];
+            if( data[i*3] < nearThreshold &&  data[i*3] > farThreshold) {
+                graypixels[i] = data[i*3];
+            } else {
+                graypixels[i] = 0;
+            }
         }
         
         
@@ -125,7 +131,13 @@ void inputManager::update(){
         
         // todo is this OK ???
         for (int i = 0; i < kinect.width*kinect.height; i++){
-            graypixels[i] = data[i];
+          //  graypixels[i] = data[i];
+            if( data[i] < nearThreshold &&  data[i] > farThreshold) {
+                graypixels[i] = data[i];
+            } else {
+                graypixels[i] = 0;
+            }
+
         }
         
         
@@ -183,10 +195,13 @@ void inputManager::draw(){
    texDepth.draw(0,0);
     medianFilteredResult.draw(512,0);
     if (finder.size() > 0){
-        ofPushMatrix();
-        ofTranslate(0,424);
-        finder.getPolyline(0).draw();
-        ofPopMatrix();
+        for(int i = 0; i < finder.size(); i++){
+            ofPushMatrix();
+            ofTranslate(0,424);
+            finder.getPolyline(i).draw();
+            ofPopMatrix();
+
+        }
         
     }
 #endif

@@ -9,7 +9,7 @@
 
 using namespace milton;
 
-#define USE_VIDEO
+//#define USE_VIDEO
 
 class inputManager {
     
@@ -21,6 +21,7 @@ public:
     
     void changeMovie( string fileName);
     void setAngle(int angle);
+    void getContours();
     
 #ifdef USE_VIDEO
     ofVideoPlayer player;
@@ -53,8 +54,9 @@ public:
     ofParameter < int > medianFilterAmount;
     ofParameter < float > minArea;
     ofParameter < float > speed;
+    ofParameter < bool > bMirror;
     ofxPanel * panel;
         
    
-    
+    bool bIsFrameNew;
 };

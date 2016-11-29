@@ -2,11 +2,11 @@
 
 #include "ofMain.h"
 #include "ofxCv.h"
-#include "contourTracker.h"
+//#include "contourTracker.h"
 #include "sceneManager.h"
 #include "baseScene.h"
 #include "inputManager.h"
-#include "motionTracker.h"
+//#include "motionTracker.h"
 #include "contentLoader.h"
 #include "ofxGui.h"
 
@@ -37,9 +37,10 @@ class ofApp : public ofBaseApp{
 		
     
         inputManager            IM;
-        vector<contourTracker>  CTVector;
-        contourTracker          CT;
-        motionTracker           motion;
+    
+      //  contourTracker          CT;
+       // vector<contourTracker>  CTVector;
+       // motionTracker           motion;
         sceneManager            SM;
         contentLoader           content;
         bool bDrawDebug;

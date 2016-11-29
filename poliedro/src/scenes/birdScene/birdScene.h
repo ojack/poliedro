@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "baseContourScene.h"
 
-class greenScene : public baseContourScene{
+class birdScene : public baseContourScene{
     
 public:
     

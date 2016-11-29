@@ -1,9 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "baseContourScene.h"
+#include "baseFlowScene.h"
 
-class paintScene : public baseContourScene{
+class flowScene : public baseFlowScene{
     
 public:
     
@@ -11,7 +11,9 @@ public:
     void update();
     void draw();
     
+    vector<ofImage> images;
     ofShader shader;
     ofFbo maskFbo;
-    
+    ofFbo renderFbo;
+    ofFbo srcFbo;
 };

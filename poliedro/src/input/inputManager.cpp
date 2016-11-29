@@ -4,13 +4,14 @@
 
 //---------------------------------------------------------------
 void inputManager::setup(){
-    
+    bIsFrameNew = false;
     
     group.setName("settings");
     group.add(threshold.set("threshold", 100, 0, 255));
     group.add(speed.set("speed", 1, 0,2));
     group.add(minArea.set("minArea", 1000, 0, 10000));
     group.add(medianFilterAmount.set("medianFilterAmount", 5, 0, 30));
+    group.add(bMirror.set("mirror", true));
     
     
    // panel.setup();
@@ -69,6 +70,7 @@ void inputManager::update(){
     
     
     if (player.isFrameNew() == true){
+        bIsFrameNew = true;
         
         unsigned char * data  = player.getPixels().getData();
         for (int i = 0; i < 512*424; i++){
@@ -81,10 +83,12 @@ void inputManager::update(){
         
         medianFilteredResult.setFromPixels(medianFiltered, 512, 424, OF_IMAGE_GRAYSCALE);
         
-        finder.setSortBySize(true);
+       /* finder.setSortBySize(true);
         finder.setThreshold(threshold);
         finder.setMinArea(minArea);
-        finder.findContours(medianFilteredResult);
+        finder.findContours(medianFilteredResult);*/
+    } else {
+        bIsFrameNew = false;
     }
 #else
    /* kinect->update();
@@ -114,6 +118,7 @@ void inputManager::update(){
     }*/
     kinect.update();
     if(kinect.isFrameNew()) {
+        bIsFrameNew = true;
         texDepth.loadData( kinect.getDepthPixels() );
         unsigned char * data  = kinect.getDepthPixels().getData();
         
@@ -129,13 +134,18 @@ void inputManager::update(){
         
         medianFilteredResult.setFromPixels(medianFiltered, kinect.width, kinect.height, OF_IMAGE_GRAYSCALE);
         
-        finder.setSortBySize(true);
+     /*   finder.setSortBySize(true);
         finder.setThreshold(threshold);
         finder.setMinArea(minArea);
-        finder.findContours(medianFilteredResult);
+        finder.findContours(medianFilteredResult);*/
+    } else {
+        bIsFrameNew = false;
     }
 #endif
     
+    if(bMirror){
+        medianFilteredResult.mirror(false, true);
+    }
 }
 
 void inputManager::setAngle(int angle){
@@ -147,6 +157,12 @@ void inputManager::setAngle(int angle){
 
 }
 
+void inputManager::getContours(){
+    finder.setSortBySize(true);
+    finder.setThreshold(threshold);
+    finder.setMinArea(minArea);
+    finder.findContours(medianFilteredResult);
+}
 //---------------------------------------------------------------
 void inputManager::draw(){
     

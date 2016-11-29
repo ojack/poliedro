@@ -19,5 +19,5 @@ void main()
     float mask = texture(maskTex, texCoordVarying).r;
     
     //mix the rgb from tex0 with the alpha of the mask
-    outputColor = vec4(src.rgb , mask*(src.a);
+    outputColor = vec4(src.rgb, step(0.2, mask));
 }

@@ -11,6 +11,7 @@
 
 //---------------------------------------------------------------
 void trailsScene::setup(){
+   setupContour(2);
    if(ofIsGLProgrammableRenderer()){
         shader.load("shaders/GL3/trails");
     }else{
@@ -30,8 +31,9 @@ void trailsScene::setup(){
 
 //---------------------------------------------------------------
 void trailsScene::update(){
-    for(int j = 0; j < CTVector->size(); j++){
-        contourTracker CT = CTVector->at(j);
+    processContour();
+    for(int j = 0; j < CTVector.size(); j++){
+        contourTracker CT = CTVector.at(j);
     
         if (CT.resampleSmoothed.size() == 100){
             for (int i = 0; i < 100; i++){
@@ -50,8 +52,8 @@ void trailsScene::update(){
     ofPushStyle();
     ofSetColor(255, 255, 255, 255);
     
-    for (int i = 0; i < CTVector->size(); i++){
-        CTVector->at(i).draw();
+    for (int i = 0; i < CTVector.size(); i++){
+        CTVector.at(i).draw();
         
     }
     ofFill();

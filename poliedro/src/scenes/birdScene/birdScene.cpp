@@ -1,7 +1,7 @@
-#include "greenScene.h"
+#include "birdScene.h"
 
 //---------------------------------------------------------------
-void greenScene::setup(){
+void birdScene::setup(){
     setupContour(2);
     if(ofIsGLProgrammableRenderer()){
         shader.load("shaders/GL3/paint");
@@ -13,18 +13,18 @@ void greenScene::setup(){
     ofClear(0,0,0,0);
     maskFbo.end();
     
-    loadImages("content/explosion", &images);
+    loadImages("content/bird", &images);
 }
 
 
 //---------------------------------------------------------------
-void greenScene::update(){
+void birdScene::update(){
     processContour();
 }
 
 
 //---------------------------------------------------------------
-void greenScene::draw(){
+void birdScene::draw(){
     images.at(1).draw(0,0);
     // HERE the shader-masking happends
     maskFbo.begin();
@@ -41,9 +41,10 @@ void greenScene::draw(){
     maskFbo.end();
     
     ofSetColor(255, 255, 255, 255);
+     maskFbo.draw(0, 0);
     ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_SCREEN);
-    maskFbo.draw(0, 0);
+   
    
     ofSetColor(0, 130, 130, 160);
 
@@ -57,7 +58,7 @@ void greenScene::draw(){
 
 }
 
-void greenScene::loadImages(string path, vector<ofImage> *images){
+void birdScene::loadImages(string path, vector<ofImage> *images){
     ofDirectory dir;
     
     dir.listDir(path);

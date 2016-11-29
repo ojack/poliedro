@@ -2,6 +2,7 @@
 
 //---------------------------------------------------------------
 void paintScene::setup(){
+    setupContour(2);
     if(ofIsGLProgrammableRenderer()){
         shader.load("shaders/GL3/paint");
     }else{
@@ -16,7 +17,7 @@ void paintScene::setup(){
 
 //---------------------------------------------------------------
 void paintScene::update(){
-    
+    processContour();
 }
 
 
@@ -30,7 +31,7 @@ void paintScene::draw(){
     
     shader.begin();
     // here is where the fbo is passed to the shader
-    shader.setUniformTexture("maskTex", motionFbo->getTextureReference(), 1 );
+    shader.setUniformTexture("maskTex", motion.motionFbo.getTextureReference(), 1 );
     
     image1->draw(0,0);
     
@@ -45,8 +46,8 @@ void paintScene::draw(){
 
     ofPushStyle();
     // ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
-      for (int i = 0; i < CTVector->size(); i++){
-        CTVector->at(i).draw();
+      for (int i = 0; i < CTVector.size(); i++){
+        CTVector.at(i).draw();
         
     }
     ofPopStyle();

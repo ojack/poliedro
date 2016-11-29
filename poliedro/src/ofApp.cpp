@@ -1,31 +1,36 @@
 #include "ofApp.h"
 
-#include "velocityScene.h"
+//#include "velocityScene.h"
 #include "paintScene.h"
 #include "greenScene.h"
+#include "birdScene.h"
+#include "flowScene.h"
 #include "trailsScene.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     panel.setup();
     IM.panel = &panel;
-    motion.panel = &panel;
+   // motion.panel = &panel;
     
     content.setup(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y);
     IM.setup();
     
     
-    SM.scenes.push_back(new trailsScene());
-    SM.scenes.push_back(new greenScene());
+  
     SM.scenes.push_back(new paintScene());
+    SM.scenes.push_back(new flowScene());
+    SM.scenes.push_back(new greenScene());
+    SM.scenes.push_back(new birdScene());
+    SM.scenes.push_back(new trailsScene());
     
     // share a pointer to the CT object
-    motion.CTVector = &CTVector;
+  /*  motion.CTVector = &CTVector;
     motion.setup(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y);
 
     for (int i = 0; i < NUM_CONTOURS; i++){
         CTVector.push_back(contourTracker());
-    }
+    }*/
 
     for (int i = 0; i < SM.scenes.size(); i++){
         SM.scenes[i]->image0 = content.image0;
@@ -33,8 +38,9 @@ void ofApp::setup(){
         SM.scenes[i]->image2 = content.image2;
         SM.scenes[i]->width = PROJECTOR_RESOLUTION_X;
         SM.scenes[i]->height = PROJECTOR_RESOLUTION_Y;
-        SM.scenes[i]->motionFbo = &motion.motionFbo;
-        SM.scenes[i]->CTVector = &CTVector;
+      //  SM.scenes[i]->motionFbo = &motion.motionFbo;
+      //  SM.scenes[i]->CTVector = &CTVector;
+        SM.scenes[i]->IM = &IM;
     }
     
     
@@ -55,7 +61,7 @@ void ofApp::update(){
     IM.update();
     
     
-    ofRectangle input(0,0,IM.medianFilteredResult.getWidth(), IM.medianFilteredResult.getHeight());
+   /* ofRectangle input(0,0,IM.medianFilteredResult.getWidth(), IM.medianFilteredResult.getHeight());
     ofRectangle output(0,0, ofGetWidth(), ofGetHeight());
     
     ofRectangle inputScaled = input;
@@ -67,7 +73,7 @@ void ofApp::update(){
     for(int j = 0; j < NUM_CONTOURS; j++){
         if (IM.finder.size() > j){
             ofPolyline tempLine = IM.finder.getPolyline(j);
-            /*scale kinect input to size of output*/
+            //scale kinect input to size of output
             for (int i = 0; i < tempLine.size(); i++){
                 float x = tempLine[i].x;
                 float y = tempLine[i].y;
@@ -83,7 +89,7 @@ void ofApp::update(){
             CTVector.at(j).reset();
         }
     }
-    motion.update();
+    motion.update();*/
     SM.update();
     
 }
@@ -99,7 +105,7 @@ void ofApp::draw(){
        
         IM.draw();
         panel.draw();
-        motion.motionFbo.draw(300, 400, 400, 300);
+       // motion.motionFbo.draw(300, 400, 400, 300);
     }else {
        SM.draw();
       // motion.draw();
@@ -116,7 +122,7 @@ void ofApp::keyPressed(int key){
 
     if (key == OF_KEY_RIGHT){
         SM.nextScene();
-        motion.clear();
+      //  motion.clear();
 
     }
     
@@ -129,7 +135,7 @@ void ofApp::keyPressed(int key){
     }
     
     if  (key == 'c'){
-        motion.clear();
+       // motion.clear();
     }
     
     if (key == OF_KEY_UP){

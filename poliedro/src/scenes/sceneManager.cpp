@@ -39,3 +39,7 @@ void sceneManager::draw(){
     scenes[currentScene]->draw();
     ofPopStyle();
 }
+
+void sceneManager::clear(){
+    scenes[currentScene]->clear();
+}

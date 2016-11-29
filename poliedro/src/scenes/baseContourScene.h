@@ -8,8 +8,8 @@ class baseContourScene : public baseScene{
     public:
         void setupContour(int numContours);
         void processContour();
+        void clear();
     
-       
         vector<contourTracker>  CTVector;
         motionTracker           motion;
 };

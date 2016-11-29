@@ -20,6 +20,10 @@ void baseContourScene::setupContour(int numContours){
     }
 }
 
+void baseContourScene::clear(){
+    motion.clear();
+}
+
 void baseContourScene::processContour(){
     IM->getContours();
     ofLog()<< "called processing contour";

@@ -32,6 +32,8 @@ void trailsScene::setup(){
 //---------------------------------------------------------------
 void trailsScene::update(){
     processContour();
+    
+    //draw contours into Fbo to use as a mask */
     for(int j = 0; j < CTVector.size(); j++){
         contourTracker CT = CTVector.at(j);
     
@@ -66,6 +68,7 @@ void trailsScene::update(){
 void trailsScene::draw(){
     //image0->draw(0,0);
     // HERE the shader-masking happends
+     ofClear(0, 0, 0, 0);
     maskFbo.begin();
     // Cleaning everthing with alpha mask on 0 in order to make it transparent by default
     ofClear(0, 0, 0, 0);
@@ -74,14 +77,15 @@ void trailsScene::draw(){
     // here is where the fbo is passed to the shader
     shader.setUniformTexture("maskTex", contourFbo.getTextureReference(), 1 );
     
-    image1->draw(0,0);
-    ofDrawRectangle(0, 0, width, height);
+   // image1->draw(0,0);
+    CL->goodFbo.draw(0, 0);
+   // ofDrawRectangle(0, 0, width, height);
    
     shader.end();
     maskFbo.end();
       ofSetColor(255, 255, 255, 255);
     maskFbo.draw(0, 0);
-    ofPushStyle();
+  /*  ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     ofSetColor(25, 149, 122, 200);
     for(int j = 0; j < 2; j++){
@@ -89,7 +93,13 @@ void trailsScene::draw(){
             trails[j][i].draw();
         }
     }
-    ofPopStyle();
+    ofPopStyle();*/
    // contourFbo.draw(0, 0);
     //image2->draw(0,0);
+ //   contourFbo.draw(0, 0);
+    for(int j = 0; j < 2; j++){
+        for (int i = 0; i < 100; i++){
+            trails[j][i].draw();
+        }
+    }
 }

@@ -20,8 +20,8 @@ void ofApp::setup(){
   
     SM.scenes.push_back(new paintScene());
     SM.scenes.push_back(new flowScene());
-    SM.scenes.push_back(new greenScene());
-    SM.scenes.push_back(new birdScene());
+  //  SM.scenes.push_back(new greenScene());
+ //   SM.scenes.push_back(new birdScene());
     SM.scenes.push_back(new trailsScene());
     
     // share a pointer to the CT object
@@ -34,6 +34,7 @@ void ofApp::setup(){
 
     for (int i = 0; i < SM.scenes.size(); i++){
         SM.scenes[i]->image0 = content.image0;
+        SM.scenes[i]->CL = &content;
         SM.scenes[i]->image1 = content.image1;
         SM.scenes[i]->image2 = content.image2;
         SM.scenes[i]->width = PROJECTOR_RESOLUTION_X;
@@ -122,6 +123,8 @@ void ofApp::keyPressed(int key){
 
     if (key == OF_KEY_RIGHT){
         SM.nextScene();
+        SM.clear();
+        content.updateIndex();
       //  motion.clear();
 
     }
@@ -135,7 +138,11 @@ void ofApp::keyPressed(int key){
     }
     
     if  (key == 'c'){
-       // motion.clear();
+       SM.clear();
+    }
+    
+    if (key == '1'){
+        content.updateIndex();
     }
     
     if (key == OF_KEY_UP){

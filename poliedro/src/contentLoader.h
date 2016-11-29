@@ -16,8 +16,7 @@ class contentLoader {
     public:
     
     void setup(int _width, int _height);
-    void update();
-    void draw();
+    void updateIndex();
     
     void loadImages(string path, vector<ofImage> *images);
     
@@ -32,6 +31,10 @@ class contentLoader {
     ofImage * image0;
     ofImage * image1;
     ofImage * image2;
+    
+    //Fbo containing "good" and "bad" visuales
+    ofFbo goodFbo;
+    ofFbo badFbo;
 };
 
 #endif /* defined(__poliedro__contentLoader__) */

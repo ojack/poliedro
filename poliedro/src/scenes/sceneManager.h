@@ -12,7 +12,7 @@ public:
     void update();
     void draw();
     void nextScene();
-    
+    void clear();
     
     
     vector < baseScene * > scenes;

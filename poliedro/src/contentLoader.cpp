@@ -13,18 +13,38 @@ void contentLoader::setup(int _width, int _height){
     height = _height;
     loadImages("content/good", &goodImages);
     loadImages("content/bad", &badImages);
-    loadImages("content/good-texto", &textImages);
+   // loadImages("content/good-texto", &textImages);
     
     imageIndex = 0;
     
     image0 = &badImages.at(imageIndex);
     image1 = &goodImages.at(imageIndex);
-    image2 = &textImages.at(imageIndex);
+ //   image2 = &textImages.at(imageIndex);
     
+    goodFbo.allocate(ofGetWidth(), ofGetHeight());
+    badFbo.allocate(ofGetWidth(), ofGetHeight());
+    
+   goodFbo.begin();
+    ofClear(0,0,0,0);
+    goodFbo.end();
+    
+    badFbo.begin();
+    ofClear(0,0,0,0);
+    badFbo.end();
+    updateIndex();
 }
 
-void contentLoader::update(){
+void contentLoader::updateIndex(){
+    imageIndex++;
+    if(imageIndex >= goodImages.size()) imageIndex = 0;
     
+    goodFbo.begin();
+    goodImages.at(imageIndex).draw(0, 0, goodFbo.getWidth(), goodFbo.getHeight());
+    goodFbo.end();
+    
+    badFbo.begin();
+    badImages.at(imageIndex).draw(0, 0, badFbo.getWidth(), badFbo.getHeight());
+    badFbo.end();
 }
 
 void contentLoader::loadImages(string path, vector<ofImage> *images){
@@ -49,6 +69,5 @@ void contentLoader::loadImages(string path, vector<ofImage> *images){
     
 }
 
-void contentLoader::draw(){
+
     
-}

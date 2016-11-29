@@ -23,7 +23,7 @@ void paintScene::update(){
 
 //---------------------------------------------------------------
 void paintScene::draw(){
-    image0->draw(0,0);
+    CL->badFbo.draw(0,0);
     // HERE the shader-masking happends
     maskFbo.begin();
     // Cleaning everthing with alpha mask on 0 in order to make it transparent by default
@@ -33,7 +33,7 @@ void paintScene::draw(){
     // here is where the fbo is passed to the shader
     shader.setUniformTexture("maskTex", motion.motionFbo.getTextureReference(), 1 );
     
-    image1->draw(0,0);
+    CL->goodFbo.draw(0,0);
     
     shader.end();
     maskFbo.end();

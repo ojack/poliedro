@@ -10,6 +10,7 @@ public:
     void setup();
     void update();
     void draw();
+    void clear();
     
     vector<ofImage> images;
     ofShader shader;

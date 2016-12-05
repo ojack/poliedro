@@ -15,7 +15,7 @@ class inputManager {
     
 public:
     
-    void setup();
+    void setup(int minDist, int maxDist);
     void update();
     void draw();
     

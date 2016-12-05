@@ -15,6 +15,8 @@
 #define PROJECTOR_RESOLUTION_Y 720
 #define KINECT_WIDTH 512
 #define KINECT_HEIGHT 424
+#define KINECT_MAX_DIST 4000
+#define KINECT_MIN_DIST 500
 
 class ofApp : public ofBaseApp{
 

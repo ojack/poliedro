@@ -14,7 +14,7 @@ void ofApp::setup(){
    // motion.panel = &panel;
     
     content.setup(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y);
-    IM.setup();
+    IM.setup(KINECT_MIN_DIST, KINECT_MAX_DIST);
     
     
   

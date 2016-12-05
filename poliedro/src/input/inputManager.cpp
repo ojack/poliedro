@@ -3,7 +3,7 @@
 #include "inputManager.h"
 
 //---------------------------------------------------------------
-void inputManager::setup(){
+void inputManager::setup(int minDist, int maxDist){
     bIsFrameNew = false;
     
     group.setName("settings");
@@ -37,7 +37,7 @@ void inputManager::setup(){
     kinect.init();
     kinect.open();
     kinect.setRegistration(false);
-    
+    kinect.setDepthClipping(minDist, maxDist);
     graypixels = new unsigned char[kinect.width*kinect.height];
     medianFiltered = new unsigned char[kinect.width*kinect.height];
     medianFilteredResult.allocate(kinect.width, kinect.height, OF_IMAGE_GRAYSCALE);

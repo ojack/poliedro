@@ -13,7 +13,7 @@ public:
     void draw();
     void nextScene();
     void clear();
-    
+    void randomScene();
     
     vector < baseScene * > scenes;
     int currentScene;

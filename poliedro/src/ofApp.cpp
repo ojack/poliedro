@@ -10,6 +10,10 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     panel.setup();
+    panel.loadFromFile("settings.xml");
+    group.setName("scene");
+    group.add(cycleTime.set("cycleTime", 60, 5, 400));
+    panel.add(group);
     IM.panel = &panel;
    // motion.panel = &panel;
     
@@ -52,7 +56,8 @@ void ofApp::setup(){
     bDrawDebug = false;
     bDrawFigure = true;
     
-    panel.loadFromFile("settings.xml");
+    
+
     
     int angle = 0;
 }
@@ -98,7 +103,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    if(ofGetElapsedTimeMillis() > cycleTime*1000){
+        goToRandomScene();
+        ofResetElapsedTimeCounter();
+    }
+    
     ofBackground(0,0,0);
      ofSetColor(255, 255, 255, 255);
     string  info  = "FPS:        "+ofToString(ofGetFrameRate(),0);
@@ -117,6 +126,12 @@ void ofApp::draw(){
    // IM.finder.draw();
    // motion.draw();
     
+}
+
+void ofApp::goToRandomScene(){
+    SM.randomScene();
+    content.randomIndex();
+    SM.clear();
 }
 
 //--------------------------------------------------------------

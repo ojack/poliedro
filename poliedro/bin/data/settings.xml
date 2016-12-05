@@ -149,7 +149,7 @@
 			<max_dot_size>10</max_dot_size>
 		</velocity_dots>
 	<near_thresh>255</near_thresh>
-		<far_thresh>0</far_thresh>
+		<far_thresh>131</far_thresh>
 		<mirror>1</mirror>
 	</settings>
 <group/>
@@ -162,4 +162,8 @@
 		<cutoff>0.117347</cutoff>
 		<radius>20.4082</radius>
 	</motion_tracking>
+<Reset_Background>0</Reset_Background>
+	<Learning_Time>3</Learning_Time>
+	<Threshold_Value>100</Threshold_Value>
+	<eraseAmount>10</eraseAmount>
 </group>

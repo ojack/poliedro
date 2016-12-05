@@ -47,6 +47,22 @@ void contentLoader::updateIndex(){
     badFbo.end();
 }
 
+void contentLoader::randomIndex(){
+    int newIndex = (int)ofRandom(0, goodImages.size());
+    if(newIndex == imageIndex){
+        updateIndex();
+    } else {
+        imageIndex = newIndex;
+        goodFbo.begin();
+        goodImages.at(imageIndex).draw(0, 0, goodFbo.getWidth(), goodFbo.getHeight());
+        goodFbo.end();
+        
+        badFbo.begin();
+        badImages.at(imageIndex).draw(0, 0, badFbo.getWidth(), badFbo.getHeight());
+        badFbo.end();
+    }
+}
+
 void contentLoader::loadImages(string path, vector<ofImage> *images){
     ofDirectory dir;
     

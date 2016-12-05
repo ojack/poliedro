@@ -24,7 +24,14 @@ void sceneManager::nextScene(){
     currentScene %= scenes.size();
 }
 
-
+void sceneManager::randomScene(){
+    int newIndex = (int)ofRandom(0, scenes.size());
+    if(newIndex == currentScene){
+        nextScene();
+    } else {
+        currentScene = newIndex;
+    }
+}
 
 //---------------------------------------------------------------
 void sceneManager::update(){

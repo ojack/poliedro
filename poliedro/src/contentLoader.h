@@ -17,6 +17,7 @@ class contentLoader {
     
     void setup(int _width, int _height);
     void updateIndex();
+    void randomIndex();
     
     void loadImages(string path, vector<ofImage> *images);
     

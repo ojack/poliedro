@@ -36,7 +36,7 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+        void goToRandomScene();
     
         inputManager            IM;
     
@@ -48,7 +48,10 @@ class ofApp : public ofBaseApp{
         bool bDrawDebug;
         bool bDrawFigure;
         ofxPanel panel;
+        ofParameterGroup group;
+        ofParameter < int > cycleTime;
     
+
         int angle;
     
 };

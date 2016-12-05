@@ -2,7 +2,8 @@
 
 //---------------------------------------------------------------
 void paintScene::setup(){
-    setupContour(2);
+   // setupContour(2);
+    setupBackground();
     if(ofIsGLProgrammableRenderer()){
         shader.load("shaders/GL3/paint");
     }else{
@@ -17,7 +18,8 @@ void paintScene::setup(){
 
 //---------------------------------------------------------------
 void paintScene::update(){
-    processContour();
+  //  processContour();
+    processBackground();
 }
 
 
@@ -46,10 +48,10 @@ void paintScene::draw(){
 
     ofPushStyle();
     // ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
-      for (int i = 0; i < CTVector.size(); i++){
+   /*   for (int i = 0; i < CTVector.size(); i++){
         CTVector.at(i).draw();
         
-    }
+    }*/
     ofPopStyle();
 
 }

@@ -1,6 +1,6 @@
 <group>
 	<settings>
-		<threshold>163</threshold>
+		<threshold>0</threshold>
 		<speed>1</speed>
 		<medianFilterAmount>10</medianFilterAmount>
 	<minArea>6632.65</minArea>
@@ -149,7 +149,7 @@
 			<max_dot_size>10</max_dot_size>
 		</velocity_dots>
 	<near_thresh>255</near_thresh>
-		<far_thresh>202</far_thresh>
+		<far_thresh>0</far_thresh>
 		<mirror>1</mirror>
 	</settings>
 <group/>

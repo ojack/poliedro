@@ -37,6 +37,7 @@ void ofApp::setup(){
         SM.scenes[i]->CL = &content;
         SM.scenes[i]->image1 = content.image1;
         SM.scenes[i]->image2 = content.image2;
+         SM.scenes[i]->panel = &panel;
         SM.scenes[i]->width = PROJECTOR_RESOLUTION_X;
         SM.scenes[i]->height = PROJECTOR_RESOLUTION_Y;
       //  SM.scenes[i]->motionFbo = &motion.motionFbo;
@@ -106,7 +107,7 @@ void ofApp::draw(){
        
         IM.draw();
         panel.draw();
-       // motion.motionFbo.draw(300, 400, 400, 300);
+        //motion.motionFbo.draw(300, 400, 400, 300);
     }else {
        SM.draw();
       // motion.draw();

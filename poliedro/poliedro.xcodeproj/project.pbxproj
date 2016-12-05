@@ -53,6 +53,8 @@
 		8E32D67F1DDF9913006FDC6E /* usb_libusb10.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E32D6641DDF9913006FDC6E /* usb_libusb10.c */; };
 		8E32D6801DDF9913006FDC6E /* usb-1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E32D66C1DDF9913006FDC6E /* usb-1.0.a */; };
 		8E7770921DE7BB67007E94B2 /* baseContourScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E7770901DE7BB67007E94B2 /* baseContourScene.cpp */; };
+		8E94A7FB1DF5ADE200F68670 /* backgroundSubtract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E94A7F91DF5ADE200F68670 /* backgroundSubtract.cpp */; };
+		8E94A7FE1DF5B0F600F68670 /* baseSubtractScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E94A7FC1DF5B0F600F68670 /* baseSubtractScene.cpp */; };
 		8EB053051DE4AA3300E0862B /* trailsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB053031DE4AA3300E0862B /* trailsScene.cpp */; };
 		8EB0530E1DE4C1C700E0862B /* greenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0530C1DE4C1C700E0862B /* greenScene.cpp */; };
 		8EB053131DE4C9D300E0862B /* birdScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB053111DE4C9D300E0862B /* birdScene.cpp */; };
@@ -310,6 +312,10 @@
 		8E7770901DE7BB67007E94B2 /* baseContourScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = baseContourScene.cpp; path = scenes/baseContourScene.cpp; sourceTree = "<group>"; };
 		8E7770911DE7BB67007E94B2 /* baseContourScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = baseContourScene.h; path = scenes/baseContourScene.h; sourceTree = "<group>"; };
 		8E79CF8911DFABAFE23EA45B /* ofxCvConstants.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvConstants.h; path = ../../../addons/ofxOpenCv/src/ofxCvConstants.h; sourceTree = SOURCE_ROOT; };
+		8E94A7F91DF5ADE200F68670 /* backgroundSubtract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = backgroundSubtract.cpp; path = scenes/backgroundSubtract.cpp; sourceTree = "<group>"; };
+		8E94A7FA1DF5ADE200F68670 /* backgroundSubtract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = backgroundSubtract.h; path = scenes/backgroundSubtract.h; sourceTree = "<group>"; };
+		8E94A7FC1DF5B0F600F68670 /* baseSubtractScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseSubtractScene.cpp; sourceTree = "<group>"; };
+		8E94A7FD1DF5B0F600F68670 /* baseSubtractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseSubtractScene.h; sourceTree = "<group>"; };
 		8EB053031DE4AA3300E0862B /* trailsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trailsScene.cpp; path = scenes/trailsScene.cpp; sourceTree = "<group>"; };
 		8EB053041DE4AA3300E0862B /* trailsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trailsScene.h; path = scenes/trailsScene.h; sourceTree = "<group>"; };
 		8EB0530C1DE4C1C700E0862B /* greenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greenScene.cpp; sourceTree = "<group>"; };
@@ -772,7 +778,11 @@
 				8EEF37F31DE8B4550033C07D /* baseFlowScene.cpp */,
 				8EEF37F41DE8B4550033C07D /* baseFlowScene.h */,
 				8E7770911DE7BB67007E94B2 /* baseContourScene.h */,
+				8E94A7FC1DF5B0F600F68670 /* baseSubtractScene.cpp */,
+				8E94A7FD1DF5B0F600F68670 /* baseSubtractScene.h */,
 				8ECA16701DE3984A00E6D9F8 /* motionTracker.cpp */,
+				8E94A7F91DF5ADE200F68670 /* backgroundSubtract.cpp */,
+				8E94A7FA1DF5ADE200F68670 /* backgroundSubtract.h */,
 				8ECA16711DE3984A00E6D9F8 /* motionTracker.h */,
 			);
 			name = scenes;
@@ -1883,6 +1893,7 @@
 				6F0D599D9FD124B23D0E0F8D /* baseScene.cpp in Sources */,
 				8E7770921DE7BB67007E94B2 /* baseContourScene.cpp in Sources */,
 				8ECA166F1DE3936A00E6D9F8 /* sceneManager.cpp in Sources */,
+				8E94A7FE1DF5B0F600F68670 /* baseSubtractScene.cpp in Sources */,
 				8E32D67F1DDF9913006FDC6E /* usb_libusb10.c in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
@@ -1957,6 +1968,7 @@
 				8E32D6771DDF9913006FDC6E /* audio.c in Sources */,
 				8E32D67B1DDF9913006FDC6E /* keep_alive.c in Sources */,
 				3C875D4FF01530E122098DCF /* usb_control.cpp in Sources */,
+				8E94A7FB1DF5ADE200F68670 /* backgroundSubtract.cpp in Sources */,
 				8EB053051DE4AA3300E0862B /* trailsScene.cpp in Sources */,
 				8ECA16781DE3A4CC00E6D9F8 /* contentLoader.cpp in Sources */,
 				496F3BC7EBDF73AA2A4ABC1A /* ofProtonect.cpp in Sources */,

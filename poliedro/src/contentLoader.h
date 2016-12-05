@@ -22,7 +22,7 @@ class contentLoader {
     
     vector<ofImage> goodImages;
     vector<ofImage> badImages;
-    vector<ofImage> textImages;
+    vector<ofImage> backgroundImages;
     
     int imageIndex;
     int width;

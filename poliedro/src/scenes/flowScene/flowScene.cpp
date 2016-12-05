@@ -30,7 +30,8 @@ void flowScene::setup(){
 
 //---------------------------------------------------------------
 void flowScene::update(){
-    setVelocityMask(renderFbo.getTexture());
+    //setVelocityMask(renderFbo.getTexture());
+     setVelocityMask(CL->goodFbo.getTexture());
     updateFlow();
 }
 
@@ -48,7 +49,7 @@ void flowScene::draw(){
     ofDrawRectangle(0, 0, srcFbo.getWidth(), srcFbo.getHeight());
    // ofClear(0, 0, 0, 0);
      ofEnableBlendMode(OF_BLENDMODE_ADD);
-     ofSetColor(255, 255, 255, 10);
+     ofSetColor(255, 255, 255, 40);
  //   IM->medianFilteredResult.draw(0, 0, srcFbo.getWidth(), srcFbo.getHeight());
     drawFlow();
     srcFbo.end();

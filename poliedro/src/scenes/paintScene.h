@@ -1,9 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "baseContourScene.h"
+#include "baseSubtractScene.h"
 
-class paintScene : public baseContourScene{
+class paintScene : public baseSubtractScene{
     
 public:
     
